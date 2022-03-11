@@ -2688,7 +2688,7 @@ main_loadings_list <- list(
                       HI= c("s2_2", "s10_2", "s15_2", "s21_2R", "s25_2R"),
                       Prosocial= c("s1_2", "s4_2", "s9_2", "s17_2", "s20_2"),
                       
-                      EF= C("s5_2", "s7_2R", "s12_2", "s18_2", "s22_2", "s2_2", "s10_2", "s15_2", "s21_2R", "s25_2R"),
+                      EF= c("s5_2", "s7_2R", "s12_2", "s18_2", "s22_2", "s2_2", "s10_2", "s15_2", "s21_2R", "s25_2R"),
                       IF= c("s6_2", "s11_2R", "s14_2R", "s19_2", "s23_2", "s3_2", "s8_2", "s13_2", "s16_2", "s24_2"))
 
                           
@@ -2796,7 +2796,7 @@ main_loadings_list <- list(
                       HI= c("s2_3", "s10_3", "s15_3", "s21_3R", "s25_3R"),
                       Prosocial= c("s1_3", "s4_3", "s9_3", "s17_3", "s20_3"),
                       
-                      EF= C("s5_3", "s7_3R", "s12_3", "s18_3", "s22_3", "s2_3", "s10_3", "s15_3", "s21_3R", "s25_3R"))
+                      EF= c("s5_3", "s7_3R", "s12_3", "s18_3", "s22_3", "s2_3", "s10_3", "s15_3", "s21_3R", "s25_3R"),
                       IF= c("s6_3", "s11_3R", "s14_3R", "s19_3", "s23_3", "s3_3", "s8_3", "s13_3", "s16_3", "s24_3"))
 
                           
@@ -2850,7 +2850,7 @@ writeLines(esem_model)
 ```
 Finally we fit the model and claulate the reliabilities
 ```{r}
-esem_fit <- cfa(esem_model, data_esem, std.lv=T, estimator="MLR")
+esem_fit <- cfa(esem_model, data_esem, std.lv=T, estimator="WLSMV")
 summary(esem_fit, fit.measures=TRUE, standardized=TRUE)
 reliability(esem_fit, omit.imps = c("no.conv", "no.se"))
 lavaanPlot(model = esem_fit, coefs = TRUE,
